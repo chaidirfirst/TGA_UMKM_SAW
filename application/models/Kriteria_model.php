@@ -1,6 +1,5 @@
 <?php
 
-use Mpdf\Tag\Tr;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
     
