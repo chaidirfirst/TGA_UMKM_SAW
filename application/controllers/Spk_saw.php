@@ -21,6 +21,10 @@ class Spk_saw extends CI_Controller {
     }
 
     private function get_data(){
+       $limit=$this->input->post('limit');
+       if($limit!==''){
+           return $this->db->limit($limit)->get('alternatif_saw')->result_array();
+       }
        return  $this->Alternatif_model->as_array()->get_all();
     }
     private function top_alternatif(){

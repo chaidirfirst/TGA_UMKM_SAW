@@ -64,6 +64,7 @@ class Saw
                     $normalisasi        = $this->normalisasi($kriteria_alternatif, $attribut_label, $nilai);
                     $result[]           = $normalisasi * $attribut_bobot[$key_attribut];
                     $baru_data[$key_data][$key_attribut] = $normalisasi;
+                    $baru_data[$key_data]['nik']=$data[$key_data]['nik'];
                 }
             }
             $baru_data[$key_data]['total'] = array_sum($result);
