@@ -32,12 +32,22 @@
             array( 'field' => 'desa',
                    'label' => 'desa',
                    'rules' => 'required' ),
+                   array( 'field' => 'aset',
+                   'label' => 'aset',
+                   'rules' => 'required' ),
+                   array( 'field' => 'omset',
+                   'label' => 'omset',
+                   'rules' => 'required' ),
             array( 'field' => 'no_telepon',
                    'label' => 'No Telepon',
                    'rules' => 'required' ),
             array( 'field' => 'bidang_usaha',
                    'label' => 'bidang usaha',
                    'rules' => 'required' ),
+                   array( 'field' => 'status_penerima',
+                   'label' => 'Status Penerima',
+                   'rules' => 'required' ),
+
 
          );
          

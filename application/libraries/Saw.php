@@ -16,13 +16,14 @@ class Saw
         $kriteria = $this->kriteria;
         $intital_kriteria = 1;
         $bobot_kriteria = [];
+        $tmp_baru=[];
         foreach ($kriteria as $key => $value) {
-            $kriteria['C' . $intital_kriteria] = $value->type_kriteria;
+            $tmp_baru['C' . $intital_kriteria] = $value->type_kriteria;
             $bobot_kriteria['C' . $intital_kriteria] = $value->bobot_kriteria;
             $intital_kriteria++;
         }
         $this->bobot_kriteria=$bobot_kriteria;
-        return $kriteria;
+        return $tmp_baru;
     }
     /**
      * @param data merupakan list dari data alternatif
@@ -39,7 +40,7 @@ class Saw
         if ($attribut == 'cos') {
             $result = min($data) / $nilai;
         }
-        return $result;
+        return number_format($result,2);
     }
 
     /**
@@ -53,6 +54,7 @@ class Saw
     {
         $attribut_kriteria = $this->kriteria();
         $attribut_bobot = $this->bobot_kriteria;
+        $baru_data=[];
         foreach ($data as $key_data => $alternatif) {
             $result = [];
             foreach ($alternatif as $key_attribut => $nilai) {
@@ -61,12 +63,12 @@ class Saw
                     $attribut_label     = $attribut_kriteria[$key_attribut];
                     $normalisasi        = $this->normalisasi($kriteria_alternatif, $attribut_label, $nilai);
                     $result[]           = $normalisasi * $attribut_bobot[$key_attribut];
-                    $data[$key_data][$key_attribut] = $normalisasi;
+                    $baru_data[$key_data][$key_attribut] = $normalisasi;
                 }
             }
-            $data[$key_data]['total'] = array_sum($result);
+            $baru_data[$key_data]['total'] = array_sum($result);
         }
-        return $data;
+        return $baru_data;
     }
     /**
      * @param data merupakan list dari alternatif yang

@@ -231,13 +231,13 @@ class Sistem extends CI_Controller
     private function alternatif($nik)
     {
         $alternatif['nik'] = $nik;
-        $alternatif['C1'] = $this->Kriteria_model->transformation_data('aset', $this->input->post('aset'));
-        $alternatif['C2'] = $this->Kriteria_model->transformation_data('ombset', $this->input->post('omset'));
-        $alternatif['C3'] = $this->Kriteria_model->transformation_data('bidang_usaha', $this->input->post('bidang_usaha'));
+        $alternatif['C1'] = $this->Kriteria_model->transformation_data('bidang_usaha', $this->input->post('bidang_usaha'));
+        $alternatif['C2'] = $this->Kriteria_model->transformation_data('aset', $this->input->post('aset'));
+        $alternatif['C3'] = $this->Kriteria_model->transformation_data('umur', $this->input->post('umur'));
         $alternatif['C4'] = $this->Kriteria_model->transformation_data('NIB', $this->input->post('nb_skhu'));
-        $alternatif['C5'] = $this->Kriteria_model->transformation_data('status', $this->input->post('status_penerima'));
-        $alternatif['C6'] = $this->Kriteria_model->transformation_data('umur', $this->input->post('umur'));
-        $alternatif['C7'] = $this->Kriteria_model->transformation_data('kecamatan', $this->input->post('kecamatan'));
+        $alternatif['C5'] = $this->Kriteria_model->transformation_data('ombset', $this->input->post('omset'));
+        $alternatif['C6'] = $this->Kriteria_model->transformation_data('kecamatan', $this->input->post('kecamatan'));
+        $alternatif['C7'] = $this->Kriteria_model->transformation_data('status', $this->input->post('status_penerima'));
         return $alternatif;
     }
 
@@ -263,8 +263,8 @@ class Sistem extends CI_Controller
         // data dari alternatif
         $alternatif = $this->alternatif($nik);
         $masyrakat_insert = $this->Masyarakat_model->insert($masyrakat);
-        $alternatif_insert = $this->Alternatif_model->insert($alternatif);
-        if ($masyrakat_insert == 0) {
+        if ($masyrakat_insert) {
+            $alternatif_insert = $this->Alternatif_model->insert($alternatif);
             $this->session->set_userdata(['nik'=>$nik]);
             $this->modul->alert("Registrasi Berhasil ", "berhasil",base_url('info'));
         } else {
@@ -359,13 +359,13 @@ class Sistem extends CI_Controller
     {
         $alternatif['nik'] = $data['B'];
         $bidang_usaha=$this->check_bidang_usaha($data['K']);
-        $alternatif['C1'] = $this->Kriteria_model->transformation_data('aset', $data['O']);
-        $alternatif['C2'] = $this->Kriteria_model->transformation_data('ombset', $data['P']);
-        $alternatif['C3'] = $this->Kriteria_model->transformation_data('bidang_usaha', $bidang_usaha->id_usaha);
+        $alternatif['C1'] = $this->Kriteria_model->transformation_data('bidang_usaha', $bidang_usaha->id_usaha);
+        $alternatif['C2'] = $this->Kriteria_model->transformation_data('aset', $data['O']);
+        $alternatif['C3'] = $this->Kriteria_model->transformation_data('umur', $data['F']);
         $alternatif['C4'] = $this->Kriteria_model->transformation_data('NIB', $data['M']);
-        $alternatif['C5'] = $this->Kriteria_model->transformation_data('status', $data['N']);
-        $alternatif['C6'] = $this->Kriteria_model->transformation_data('umur', $data['F']);
-        $alternatif['C7'] = $this->Kriteria_model->transformation_data('kecamatan', $data['I']);
+        $alternatif['C5'] = $this->Kriteria_model->transformation_data('ombset', $data['P']);
+        $alternatif['C6'] = $this->Kriteria_model->transformation_data('kecamatan', $data['I']);
+        $alternatif['C7'] = $this->Kriteria_model->transformation_data('status', $data['N']);
         $this->Alternatif_model->insert($alternatif);
     }
 

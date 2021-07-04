@@ -40,7 +40,7 @@
 <script src="{{ base_url('assets/lib/dropzone/dropzone.min.js') }}"></script>
 <script>
 var uri=$("#uri").val();
-var myDropzone = new Dropzone("#demo-upload", { url: "{{ base_url('Sistem/import/') }}"+uri});
+var myDropzone = new Dropzone("#demo-upload", { url: "{{ base_url('Sistem/import/') }}"+uri,timeout:180000});
 var respon_btn=$("#respone_impor");
 myDropzone.on("success",function(data,respon){
    respon_btn.attr('href',respon);

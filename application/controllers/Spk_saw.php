@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 class Spk_saw extends CI_Controller {
-    // 1173024502770004  
+     
     public function index()
     {
         $this->load->library('saw');

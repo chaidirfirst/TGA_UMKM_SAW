@@ -39,11 +39,11 @@
                                 <th class="wd-30p">{{ get_msg('nik') }}</th>
                                 <th class="wd-30p">{{ get_msg('nama_lengkap') }} </th>
                                 <th class="wd-25p">{{ get_msg('bidang_usaha') }} (C1)</th>
-                                <th class="wd-15p">{{ get_msg('kecamatan') }} (C2)</th>
-                                <th class="wd-25p">{{ get_msg('nb_skhu') }} (C3)</th>
-                                <th class="wd-20p">{{ get_msg('umur') }} (C4)</th>
+                                <th class="wd-25p">{{ get_msg('aset') }} (C2)</th>
+                                <th class="wd-20p">{{ get_msg('umur') }} (C3)</th>
+                                <th class="wd-25p">{{ get_msg('nb_skhu') }} (C4)</th>
                                 <th class="wd-25p">{{ get_msg('omset') }} (C5) </th>
-                                <th class="wd-25p">{{ get_msg('aset') }} (C6)</th>
+                                <th class="wd-15p">{{ get_msg('kecamatan') }} (C6)</th>
                                 <th class="wd-25p">{{ get_msg('status_penerima') }} (C7)</th>
                                 </tr>
                             </thead>
