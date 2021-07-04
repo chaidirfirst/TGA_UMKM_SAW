@@ -94,9 +94,10 @@ class Petugas extends CI_Controller {
         view($page,$data);
     }
     
-    public function spk_saw(){
+    public function spk_saw($limit=null){
+        $data['limit']=$limit ?? '';
         $data['title']='SPK';
-        $data['data']=$this->db->join('masyarakat','alternatif_saw.nik=masyarakat.nik')->get('alternatif_saw')->result();
+        $data['data']=$this->db->join('masyarakat','alternatif_saw.nik=masyarakat.nik')->limit($limit)->get('alternatif_saw')->result();
         view('content.saw.index',$data);
     }
 

@@ -4,7 +4,7 @@
     
         <ul class="nav">
           <li class="nav-label">Main Menu</li>
-          <li class="nav-item {{ is_path('',2) ? 'active':'' }}">
+          <li class="nav-item {{ is_path('Petugas',1) ? 'active':'' }}">
             <a href="{{ base_url('Petugas/') }}" class="nav-link"><i class="typcn typcn-clipboard"></i>Dashboard</a>
           </li><!-- nav-item -->
           <li class="nav-item {{ is_path('masyarakat',2) ? 'active':'' }}">

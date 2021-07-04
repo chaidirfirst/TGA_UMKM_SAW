@@ -33,6 +33,10 @@
             <div class="col-lg-12 col-xs-12 col-12 ">
                 <div class="card">
                     <div class="card-body my-2">
+                        <div class="input-group my-2 " style="width: 250px;">
+                            <input type="number" id="limit_data" min="0"   class="form-control ">
+                            <button  class="btn btn-primary" id="btn-limit">Limit Data</button>
+                        </div>
                         <table id="fixed" class="display stripe  nowrap ">
                             <thead>
                                 <th class="wd-5p">No</th>
@@ -75,6 +79,7 @@
                             <div class="col-lg-12 mg-t-20 mg-lg-t-0">
                                 <form action="{{ base_url('/Spk_saw') }}" method="POST">
                                     <input type="text" class="form-control" name="top" placeholder="Top Rank">
+                                    <input type="hidden" name="limit" value="{{ $limit }}">
                                     <button class=" btn btn-az-primary btn-block mt-2" type="submit">Proses Perankingan</button>
                                
                                     <div class="alert alert-info">
@@ -95,6 +100,14 @@
     <script>
         $('.select2').select2({
             placeholder: 'File yang dilampiran saat mengirim email'
+        });
+        $("#btn-limit").click(()=>{
+            var limit=$("#limit_data").val();
+            if(limit<0){
+                alert("Limit Tidak Bisa Kurang Dari 0");
+            }else{
+                window.location = "<?=base_url('Petugas/spk_saw/')?>"+limit;
+            }
         });
     </script>
 @endsection
