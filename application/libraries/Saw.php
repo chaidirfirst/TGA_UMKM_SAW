@@ -65,8 +65,8 @@ class Saw
                     $kriteria_alternatif = array_column($data, $key_attribut);
                     $attribut_label     = $attribut_kriteria[$key_attribut];
                     $normalisasi        = $this->normalisasi($kriteria_alternatif, $attribut_label, $nilai);
-                    $result[]           = $normalisasi * $attribut_bobot[$key_attribut];
-                    // echo $normalisasi * $attribut_bobot[$key_attribut];
+                    $result[]           =  $attribut_bobot[$key_attribut]*$normalisasi;
+                    // echo  $attribut_bobot[$key_attribut]* $normalisasi;
                     // echo "<br>";
                     $baru_data[$key_data][$key_attribut] = $normalisasi;
                     $baru_data[$key_data]['nik']=$data[$key_data]['nik'];

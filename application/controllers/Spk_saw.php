@@ -4,7 +4,7 @@ class Spk_saw extends CI_Controller {
     public function index()
     {
         $this->load->library('saw');
-        $kriteria=$this->Kriteria_model->get_all();
+        $kriteria=$this->db->order_by('bobot_kriteria','desc')->get('kriteria')->result();
         $top_alternatif=$this->top_alternatif();
         $saw=new Saw($kriteria);
         $saw_data=$this->get_data();
