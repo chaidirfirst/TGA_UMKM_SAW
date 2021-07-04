@@ -36,11 +36,14 @@ class Saw
     {
         if ($attribut == 'ben') {
             $result = $nilai / max($data);
+            // echo $nilai.'/max('.implode(',',$data).')='.substr($result,0,4);
         }
         if ($attribut == 'cos') {
             $result = min($data) / $nilai;
+            // echo 'min('.implode(',',$data).')/'.$nilai.'='.substr($result,0,4);
         }
-        return number_format($result,2);
+        // echo "<br>";
+        return substr($result,0,4);
     }
 
     /**
@@ -63,11 +66,15 @@ class Saw
                     $attribut_label     = $attribut_kriteria[$key_attribut];
                     $normalisasi        = $this->normalisasi($kriteria_alternatif, $attribut_label, $nilai);
                     $result[]           = $normalisasi * $attribut_bobot[$key_attribut];
+                    // echo $normalisasi * $attribut_bobot[$key_attribut];
+                    // echo "<br>";
                     $baru_data[$key_data][$key_attribut] = $normalisasi;
                     $baru_data[$key_data]['nik']=$data[$key_data]['nik'];
                 }
             }
-            $baru_data[$key_data]['total'] = array_sum($result);
+            // echo 'sum('.implode(',',$result).')='.$this->sum_data($result);
+            // echo "<br>";
+            $baru_data[$key_data]['total'] = $this->sum_data($result);
         }
         return $baru_data;
     }
@@ -97,5 +104,12 @@ class Saw
             $result[$i] = $data[$i];
         }
         return $result;
+    }
+    function sum_data($array){
+        $jumlah=0;
+        for($i=0;$i<count($array);$i++){
+            $jumlah=$jumlah+$array[$i];
+        }
+        return $jumlah;
     }
 }
