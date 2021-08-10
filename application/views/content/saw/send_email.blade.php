@@ -20,7 +20,7 @@
                             <th class="wd-5p">NIK</th>
                             <th class="wd-20p">Nama</th>
                             <th class="wd-5p">No Hp</th>
-                            <th class="wd-5">Nama Usaha</th>
+                            <th class="wd-5">Nama UMKM</th>
                             <th class="wd-20p">Total</th>
                             <th class="wd-6p">Rank</th>
 
