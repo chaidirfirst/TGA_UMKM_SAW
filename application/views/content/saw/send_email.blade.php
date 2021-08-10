@@ -19,7 +19,8 @@
                             <th class="wd-5p">No</th>
                             <th class="wd-5p">NIK</th>
                             <th class="wd-20p">Nama</th>
-                            <th class="wd-20p">No Hp</th>
+                            <th class="wd-5p">No Hp</th>
+                            <th class="wd-5">Nama Usaha</th>
                             <th class="wd-20p">Total</th>
                             <th class="wd-6p">Rank</th>
 
@@ -35,6 +36,7 @@
                             <td>{{ $row['nik'] }}</td>
                             <td>{{ $row['nama_lengkap'] }}</td>
                             <td>{{ $row['no_telepon'] }}</td>
+                            <td>{{ $row['bidang_usaha'] }}</td>
                             <td>{{ $row['total'] }}</td>
                             <td>
                                 @if($no<=3) <h3 class="text-white p-2 bg-success">{{ $no++ }}</h3>

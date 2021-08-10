@@ -40,7 +40,7 @@ class Spk_saw extends CI_Controller {
         $total=array_column($rank_top,'total');
         $top=1;
         foreach($nik as $key=>$nik){
-            $data[$key]=$this->db->get_where("masyarakat",["nik"=>$nik])->row_array();
+            $data[$key]=$this->db->join('bidang_usaha','masyarakat.bidang_usaha=bidang_usaha.id_usaha')->get_where("masyarakat",["nik"=>$nik])->row_array();
             $data[$key]['top']=$top;
             $data[$key]['total']=$total[$key];
             $top++;
